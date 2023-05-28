@@ -65,7 +65,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Должно быть указано название фильма на английском языке'],
   },
-});
+}, { versionKey: false });
 
 // MODULE EXPORT
 module.exports = mongoose.model('movie', movieSchema);

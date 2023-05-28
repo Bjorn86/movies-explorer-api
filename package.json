@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "lint": "npx eslint ./src",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "mongodb",
     "mongoose"
   ],
-  "author": "Danila Legkobyrov <legkobytov-danila@yandex.ru>",
+  "author": "Danila Legkobytov <legkobytov-danila@yandex.ru>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Bjorn86/movies-explorer-api/issues"

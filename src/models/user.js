@@ -6,6 +6,9 @@ const bcrypt = require('bcryptjs');
 // IMPORT ERRORS
 const AuthorizationError = require('../errors/authorizationError');
 
+// IMPORT VARIABLES
+const { AUTHORIZATION_ERROR_MESSAGE } = require('../utils/constants');
+
 // USER SCHEMA
 const userSchema = new mongoose.Schema({
   email: {
@@ -36,12 +39,12 @@ const userSchema = new mongoose.Schema({
       return this.findOne({ email }).select('+password')
         .then((user) => {
           if (!user) {
-            throw new AuthorizationError('Неправильная почта или пароль');
+            throw new AuthorizationError(AUTHORIZATION_ERROR_MESSAGE);
           }
           return bcrypt.compare(password, user.password)
             .then((matched) => {
               if (!matched) {
-                throw new AuthorizationError('Неправильная почта или пароль');
+                throw new AuthorizationError(AUTHORIZATION_ERROR_MESSAGE);
               }
               return user;
             });
