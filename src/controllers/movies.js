@@ -17,15 +17,23 @@ const {
   MOVIE_BAD_DATA_MESSAGE,
   MOVIE_FORBIDDEN_MESSAGE,
   MOVIE_DELETE_MESSAGE,
-  MOVIE_NOT_FOUND_MESSAGE,
+  MOVIE_DELETE_NOT_FOUND_MESSAGE,
+  MOVIE_FIND_NOT_FOUND_MESSAGE,
   MOVIE_BAD_ID_MESSAGE,
 } = require('../utils/constants');
 
-// GET ALL MOVIES CARDS
-module.exports.getAllCards = (req, res, next) => {
-  Movie.find({})
+// GET USER MOVIES CARDS
+module.exports.getUserCards = (req, res, next) => {
+  Movie.find({ owner: req.user._id })
+    .orFail()
     .then((cards) => res.send(cards))
-    .catch(next);
+    .catch((err) => {
+      if (err instanceof DocumentNotFoundError) {
+        next(new NotFoundError(MOVIE_FIND_NOT_FOUND_MESSAGE));
+      } else {
+        next(err);
+      }
+    });
 };
 
 // CREATE MOVIE CARD
@@ -83,7 +91,7 @@ module.exports.deleteMovieCard = (req, res, next) => {
     })
     .catch((err) => {
       if (err instanceof DocumentNotFoundError) {
-        next(new NotFoundError(MOVIE_NOT_FOUND_MESSAGE));
+        next(new NotFoundError(MOVIE_DELETE_NOT_FOUND_MESSAGE));
       } else if (err instanceof CastError) {
         next(new IncorrectDataError(MOVIE_BAD_ID_MESSAGE));
       } else {

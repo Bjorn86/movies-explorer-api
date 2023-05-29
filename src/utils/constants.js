@@ -15,7 +15,8 @@ const SIGNUP_CONFLICT_MESSAGE = 'Указанный email уже зарегис�
 const MOVIE_DELETE_MESSAGE = 'Фильм удалён';
 const MOVIE_BAD_DATA_MESSAGE = 'Переданы некорректные данные для создания карточки фильма';
 const MOVIE_FORBIDDEN_MESSAGE = 'Невозможно удалить карточку созданную не вами';
-const MOVIE_NOT_FOUND_MESSAGE = 'Карточка с указанным ID не найдена';
+const MOVIE_DELETE_NOT_FOUND_MESSAGE = 'Карточка с указанным ID не найдена';
+const MOVIE_FIND_NOT_FOUND_MESSAGE = 'Не найдены карточки пользователя';
 const MOVIE_BAD_ID_MESSAGE = 'Передан некорректный ID карточки';
 const URL_NOT_FOUND_MESSAGE = 'Указан несуществующий URL';
 const USER_NOT_FOUND_MESSAGE = 'Пользователь с указанным ID не найден';
@@ -26,8 +27,8 @@ const AUTHORIZATION_ERROR_MESSAGE = 'Неправильная почта или 
 
 // ALLOWED CORS DOMAINS
 const ALLOWED_CORS = [
-  'http://diplom.ld-webdev.nomoredomains.monster',
-  'https://diplom.ld-webdev.nomoredomains.monster',
+  'http://diplom.ld-webdev.nomoredomains.rocks',
+  'https://diplom.ld-webdev.nomoredomains.rocks',
   'http://51.250.11.115',
   'https://51.250.11.115',
   'http://localhost:3000',
@@ -52,7 +53,8 @@ module.exports = {
   MOVIE_DELETE_MESSAGE,
   MOVIE_BAD_DATA_MESSAGE,
   MOVIE_FORBIDDEN_MESSAGE,
-  MOVIE_NOT_FOUND_MESSAGE,
+  MOVIE_DELETE_NOT_FOUND_MESSAGE,
+  MOVIE_FIND_NOT_FOUND_MESSAGE,
   MOVIE_BAD_ID_MESSAGE,
   URL_NOT_FOUND_MESSAGE,
   USER_NOT_FOUND_MESSAGE,
