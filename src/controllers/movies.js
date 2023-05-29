@@ -23,7 +23,7 @@ const {
 } = require('../utils/constants');
 
 // GET USER MOVIES CARDS
-module.exports.getUserCards = (req, res, next) => {
+module.exports.getCardsByOwner = (req, res, next) => {
   Movie.find({ owner: req.user._id })
     .orFail()
     .then((cards) => res.send(cards))
@@ -80,14 +80,12 @@ module.exports.deleteMovieCard = (req, res, next) => {
   Movie.findById(req.params.cardId)
     .orFail()
     .then((card) => {
-      Movie.deleteOne({ _id: card._id, owner: req.user._id })
-        .then((result) => {
-          if (result.deletedCount === 0) {
-            throw new ForbiddenError(MOVIE_FORBIDDEN_MESSAGE);
-          }
-          res.send({ message: MOVIE_DELETE_MESSAGE });
-        })
-        .catch(next);
+      if (card.owner.toString() === req.user._id) {
+        card.deleteOne();
+        res.send({ message: MOVIE_DELETE_MESSAGE });
+      } else {
+        throw new ForbiddenError(MOVIE_FORBIDDEN_MESSAGE);
+      }
     })
     .catch((err) => {
       if (err instanceof DocumentNotFoundError) {

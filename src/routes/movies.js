@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 // IMPORT CONTROLLERS
 const {
-  getUserCards,
+  getCardsByOwner,
   createMovieCard,
   deleteMovieCard,
 } = require('../controllers/movies');
@@ -15,7 +15,7 @@ const {
 } = require('../middlewares/celebrateValidator');
 
 // GET USER MOVIES CARDS ROUTE
-router.get('/', getUserCards);
+router.get('/', getCardsByOwner);
 
 // CREATE MOVIE CARD ROUTE
 router.post('/', createMovieCardValidator, createMovieCard);

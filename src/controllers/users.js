@@ -25,8 +25,6 @@ module.exports.getUserInfo = (req, res, next) => {
     .catch((err) => {
       if (err instanceof DocumentNotFoundError) {
         next(new NotFoundError(USER_NOT_FOUND_MESSAGE));
-      } else if (err instanceof CastError) {
-        next(new IncorrectDataError(USER_BAD_ID_MESSAGE));
       } else {
         next(err);
       }
