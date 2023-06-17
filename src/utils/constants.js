@@ -8,22 +8,23 @@ const CONFLICT_ERROR_CODE = 409;
 const DEFAULT_ERROR_CODE = 500;
 
 // ERRORS MESSAGES
-const SIGNIN_MESSAGE = 'Успешный вход';
-const SIGNOUT_MESSAGE = 'Успешный выход';
-const SIGNUP_BAD_DATA_MESSAGE = 'Переданы некорректные данные для создания пользователя';
-const SIGNUP_CONFLICT_MESSAGE = 'Указанный email уже зарегистрирован. Пожалуйста используйте другой email';
-const MOVIE_DELETE_MESSAGE = 'Фильм удалён';
-const MOVIE_BAD_DATA_MESSAGE = 'Переданы некорректные данные для создания карточки фильма';
-const MOVIE_FORBIDDEN_MESSAGE = 'Невозможно удалить карточку созданную не вами';
-const MOVIE_DELETE_NOT_FOUND_MESSAGE = 'Карточка с указанным ID не найдена';
-const MOVIE_FIND_NOT_FOUND_MESSAGE = 'Не найдены карточки пользователя';
-const MOVIE_BAD_ID_MESSAGE = 'Передан некорректный ID карточки';
-const URL_NOT_FOUND_MESSAGE = 'Указан несуществующий URL';
-const USER_NOT_FOUND_MESSAGE = 'Пользователь с указанным ID не найден';
-const USER_BAD_ID_MESSAGE = 'Передан некорректный ID пользователя';
-const USER_BAD_DATA_MESSAGE = 'Переданы некорректные данные для редактирования профиля';
-const AUTHORIZATION_MESSAGE = 'Необходима авторизация';
-const AUTHORIZATION_ERROR_MESSAGE = 'Неправильная почта или пароль';
+const CONFLICT_MESSAGE = 'Пользователь с таким email уже существует.';
+const SIGNIN_MESSAGE = 'Успешный вход.';
+const SIGNOUT_MESSAGE = 'Успешный выход.';
+const SIGNUP_BAD_DATA_MESSAGE = 'При регистрации пользователя произошла ошибка.';
+const MOVIE_DELETE_MESSAGE = 'Фильм удалён.';
+const MOVIE_BAD_DATA_MESSAGE = 'Переданы некорректные данные для добавления фильма в сохранённые.';
+const MOVIE_FORBIDDEN_MESSAGE = 'Невозможно удалить карточку фильма созданную не вами.';
+const MOVIE_DELETE_NOT_FOUND_MESSAGE = 'Карточка фильма с указанным ID не найдена.';
+const MOVIE_FIND_NOT_FOUND_MESSAGE = 'Не найдены карточки фильмов пользователя.';
+const MOVIE_BAD_ID_MESSAGE = 'Передан некорректный ID карточки фильма.';
+const URL_NOT_FOUND_MESSAGE = 'Страница по указанному маршруту не найдена.';
+const USER_NOT_FOUND_MESSAGE = 'Пользователь с указанным ID не найден.';
+const USER_BAD_ID_MESSAGE = 'Передан некорректный ID пользователя.';
+const USER_BAD_DATA_MESSAGE = 'При обновлении профиля произошла ошибка.';
+const AUTHORIZATION_BAD_DATA_MESSAGE = 'Вы ввели неправильный логин или пароль.';
+const AUTHORIZATION_NO_TOKEN_MESSAGE = 'При авторизации произошла ошибка. Токен не передан или передан не в том формате.';
+const AUTHORIZATION_BAD_TOKEN_MESSAGE = 'При авторизации произошла ошибка. Переданный токен некорректен.';
 
 // ALLOWED CORS DOMAINS
 const ALLOWED_CORS = [
@@ -46,10 +47,10 @@ module.exports = {
   NOT_FOUND_ERROR_CODE,
   CONFLICT_ERROR_CODE,
   DEFAULT_ERROR_CODE,
+  CONFLICT_MESSAGE,
   SIGNIN_MESSAGE,
   SIGNOUT_MESSAGE,
   SIGNUP_BAD_DATA_MESSAGE,
-  SIGNUP_CONFLICT_MESSAGE,
   MOVIE_DELETE_MESSAGE,
   MOVIE_BAD_DATA_MESSAGE,
   MOVIE_FORBIDDEN_MESSAGE,
@@ -60,8 +61,9 @@ module.exports = {
   USER_NOT_FOUND_MESSAGE,
   USER_BAD_ID_MESSAGE,
   USER_BAD_DATA_MESSAGE,
-  AUTHORIZATION_MESSAGE,
-  AUTHORIZATION_ERROR_MESSAGE,
+  AUTHORIZATION_BAD_DATA_MESSAGE,
+  AUTHORIZATION_NO_TOKEN_MESSAGE,
+  AUTHORIZATION_BAD_TOKEN_MESSAGE,
   ALLOWED_CORS,
   DEFAULT_ALLOWED_METHODS,
 };

@@ -16,7 +16,7 @@ const {
   USER_NOT_FOUND_MESSAGE,
   USER_BAD_ID_MESSAGE,
   USER_BAD_DATA_MESSAGE,
-  SIGNUP_CONFLICT_MESSAGE,
+  CONFLICT_MESSAGE,
 } = require('../utils/constants');
 
 // GET USER INFO
@@ -47,7 +47,7 @@ module.exports.updateUserInfo = (req, res, next) => {
       } else if (err instanceof ValidationError) {
         next(new IncorrectDataError(USER_BAD_DATA_MESSAGE));
       } else if (err.code === 11000) {
-        next(new ConflictError(SIGNUP_CONFLICT_MESSAGE));
+        next(new ConflictError(CONFLICT_MESSAGE));
       } else {
         next(err);
       }

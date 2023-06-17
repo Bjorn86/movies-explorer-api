@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const AuthorizationError = require('../errors/authorizationError');
 
 // IMPORT VARIABLES
-const { AUTHORIZATION_ERROR_MESSAGE } = require('../utils/constants');
+const { AUTHORIZATION_BAD_DATA_MESSAGE } = require('../utils/constants');
 
 // USER SCHEMA
 const userSchema = new mongoose.Schema({
@@ -39,12 +39,12 @@ const userSchema = new mongoose.Schema({
       return this.findOne({ email }).select('+password')
         .then((user) => {
           if (!user) {
-            throw new AuthorizationError(AUTHORIZATION_ERROR_MESSAGE);
+            throw new AuthorizationError(AUTHORIZATION_BAD_DATA_MESSAGE);
           }
           return bcrypt.compare(password, user.password)
             .then((matched) => {
               if (!matched) {
-                throw new AuthorizationError(AUTHORIZATION_ERROR_MESSAGE);
+                throw new AuthorizationError(AUTHORIZATION_BAD_DATA_MESSAGE);
               }
               return user;
             });

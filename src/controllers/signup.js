@@ -13,7 +13,7 @@ const User = require('../models/user');
 const {
   CREATE_CODE,
   SIGNUP_BAD_DATA_MESSAGE,
-  SIGNUP_CONFLICT_MESSAGE,
+  CONFLICT_MESSAGE,
 } = require('../utils/constants');
 
 // CREATE USER
@@ -30,7 +30,7 @@ module.exports.createUser = (req, res, next) => {
       if (err instanceof ValidationError) {
         next(new IncorrectDataError(SIGNUP_BAD_DATA_MESSAGE));
       } else if (err.code === 11000) {
-        next(new ConflictError(SIGNUP_CONFLICT_MESSAGE));
+        next(new ConflictError(CONFLICT_MESSAGE));
       } else {
         next(err);
       }
