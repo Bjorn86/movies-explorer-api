@@ -67,8 +67,7 @@
 ### Ссылки
 
 - [Ссылка на репозиторий проекта](https://github.com/Bjorn86/movies-explorer-api)
-- [Ссылка на API сервер проекта](https://api.diplom.ld-webdev.nomoredomains.rocks)
-- IP-адрес проекта: 51.250.11.115
+- [Ссылка на API сервер проекта](https://api.movies.ld-webdev.ru)
 
 ## Ход выполнения проекта
 

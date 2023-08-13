@@ -28,12 +28,12 @@ const AUTHORIZATION_BAD_TOKEN_MESSAGE = 'При авторизации прои�
 
 // ALLOWED CORS DOMAINS
 const ALLOWED_CORS = [
-  'http://diplom.ld-webdev.nomoredomains.rocks',
-  'https://diplom.ld-webdev.nomoredomains.rocks',
-  'http://51.250.11.115',
-  'https://51.250.11.115',
-  'http://localhost:3000',
-  'http://localhost:3001',
+  'http://movies.ld-webdev.ru',
+  'https://movies.ld-webdev.ru',
+  'http://77.232.131.208',
+  'https://77.232.131.208',
+  'http://localhost:3002',
+  'http://localhost:3003',
 ];
 
 // ALLOWED METHODS
